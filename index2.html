@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JDIH - Jaringan Dokumen dan Informasi Hukum Nasional</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        overflow-x: hidden;
+      }
+
+      .parallax-container {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .parallax-layer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .layer-bg {
+        background: linear-gradient(
+          to bottom,
+          #c5d9c0 0%,
+          #8fb88a 50%,
+          #5a7d54 100%
+        );
+        z-index: 1;
+      }
+
+      .layer-pattern {
+        background-image: url("https://www.transparenttextures.com/patterns/arabesque.png");
+        opacity: 0.1;
+        z-index: 2;
+      }
+
+      .layer-mountains {
+        background-image: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80");
+        background-size: cover;
+        background-position: center bottom;
+        opacity: 0.3;
+        z-index: 3;
+        transform: translateY(0);
+      }
+
+      .layer-trees {
+        background-image: url("https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&q=80");
+        background-size: cover;
+        background-position: center bottom;
+        opacity: 0.4;
+        z-index: 4;
+        transform: translateY(0);
+      }
+
+      .decorative-border {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 80px;
+        height: 100%;
+        background: linear-gradient(to bottom, #8b4513, #d2691e, #8b4513);
+        z-index: 10;
+        overflow: hidden;
+      }
+
+      .decorative-border::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: repeating-linear-gradient(
+          0deg,
+          #ffd700 0px,
+          #ffd700 20px,
+          transparent 20px,
+          transparent 40px
+        );
+        opacity: 0.5;
+      }
+
+      .tribal-character {
+        position: absolute;
+        left: 50px;
+        bottom: 100px;
+        z-index: 8;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .tribal-character img {
+        width: 150px;
+        height: auto;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+      }
+
+      .bird-character {
+        position: absolute;
+        right: 120px;
+        top: 150px;
+        z-index: 9;
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .bird-character img {
+        width: 120px;
+        height: auto;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .content {
+        position: relative;
+        z-index: 5;
+        text-align: center;
+        padding-top: 80px;
+      }
+
+      .logo {
+        width: 100px;
+        height: auto;
+        margin-bottom: 20px;
+        animation: fadeInDown 1s ease-out;
+      }
+
+      .main-title {
+        color: #2c3e50;
+        font-size: 2.5em;
+        font-weight: bold;
+        margin: 20px 0;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        animation: fadeInDown 1.2s ease-out;
+      }
+
+      .subtitle {
+        color: #2c3e50;
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-bottom: 40px;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        animation: fadeInDown 1.4s ease-out;
+      }
+
+      .search-container {
+        max-width: 700px;
+        margin: 0 auto 40px;
+        padding: 0 20px;
+        animation: fadeInUp 1.6s ease-out;
+      }
+
+      .search-box {
+        display: flex;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 50px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      }
+
+      .search-input {
+        flex: 1;
+        padding: 18px 30px;
+        border: none;
+        font-size: 1.1em;
+        outline: none;
+        background: transparent;
+      }
+
+      .search-button {
+        padding: 18px 30px;
+        background: #8b6914;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .search-button:hover {
+        background: #6d5411;
+      }
+
+      .search-icon {
+        width: 24px;
+        height: 24px;
+        background: white;
+        border-radius: 50%;
+      }
+
+      .nav-menu {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 60px;
+        animation: fadeInUp 1.8s ease-out;
+      }
+
+      .nav-link {
+        color: #2c3e50;
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: all 0.3s;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-link:hover {
+        background: rgba(255, 255, 255, 0.95);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      .footer-nav {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 80px;
+        background: rgba(101, 67, 33, 0.9);
+        padding: 30px;
+        z-index: 6;
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+      }
+
+      .footer-link {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1em;
+        font-weight: 500;
+        transition: all 0.3s;
+      }
+
+      .footer-link:hover {
+        color: #ffd700;
+        transform: scale(1.1);
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 1.8em;
+        }
+
+        .subtitle {
+          font-size: 1.3em;
+        }
+
+        .nav-menu {
+          flex-direction: column;
+          gap: 15px;
+          padding: 0 20px;
+        }
+
+        .footer-nav {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+
+        .tribal-character {
+          left: 20px;
+          bottom: 150px;
+        }
+
+        .tribal-character img {
+          width: 100px;
+        }
+
+        .bird-character {
+          right: 20px;
+          top: 100px;
+        }
+
+        .bird-character img {
+          width: 80px;
+        }
+
+        .decorative-border {
+          width: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parallax-container">
+      <div class="parallax-layer layer-bg"></div>
+      <div class="parallax-layer layer-pattern"></div>
+      <div class="parallax-layer layer-mountains"></div>
+      <div class="parallax-layer layer-trees"></div>
+
+      <div class="decorative-border"></div>
+
+      <div class="tribal-character">
+        <img
+          src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&q=80"
+          alt="Tribal Character"
+        />
+      </div>
+
+      <div class="bird-character">
+        <img
+          src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=200&q=80"
+          alt="Bird"
+        />
+      </div>
+
+      <div class="content">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Coat_of_arms_of_Indonesia_Garuda_Pancasila.svg/200px-Coat_of_arms_of_Indonesia_Garuda_Pancasila.svg.png"
+          alt="Garuda Pancasila"
+          class="logo"
+        />
+
+        <h1 class="main-title">JARINGAN DOKUMEN DAN INFORMASI</h1>
+        <h2 class="main-title">HUKUM NASIONAL</h2>
+        <p class="subtitle">(JDIH)</p>
+
+        <div class="search-container">
+          <div class="search-box">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Cari Dokumen Hukum..."
+            />
+            <button class="search-button">
+              <span class="search-icon">🔍</span>
+            </button>
+          </div>
+        </div>
+
+        <nav class="nav-menu">
+          <a href="#" class="nav-link">Peraturan</a>
+          <a href="#" class="nav-link">Putusan</a>
+          <a href="#" class="nav-link">Naskah Akademik</a>
+        </nav>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="#" class="footer-link">Peraturan</a>
+        <a href="#" class="footer-link">Putusan</a>
+        <a href="#" class="footer-link">Naskah Akademik</a>
+      </nav>
+    </div>
+
+    <script>
+      // Parallax effect
+      const parallaxContainer = document.querySelector(".parallax-container");
+      const mountains = document.querySelector(".layer-mountains");
+      const trees = document.querySelector(".layer-trees");
+      const tribal = document.querySelector(".tribal-character");
+      const bird = document.querySelector(".bird-character");
+
+      let scrollY = 0;
+      let ticking = false;
+
+      function updateParallax() {
+        const scrollPercent = scrollY / window.innerHeight;
+
+        mountains.style.transform = `translateY(${scrollY * 0.5}px)`;
+        trees.style.transform = `translateY(${scrollY * 0.3}px)`;
+
+        if (tribal) {
+          tribal.style.transform = `translateY(${scrollY * 0.2}px)`;
+        }
+
+        if (bird) {
+          bird.style.transform = `translateY(${-scrollY * 0.15}px)`;
+        }
+
+        ticking = false;
+      }
+
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener("scroll", function () {
+        scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        requestTick();
+      });
+
+      // Mouse move parallax effect
+      parallaxContainer.addEventListener("mousemove", function (e) {
+        const mouseX = e.clientX / window.innerWidth - 0.5;
+        const mouseY = e.clientY / window.innerHeight - 0.5;
+
+        mountains.style.transform = `translate(${mouseX * 20}px, ${
+          mouseY * 20
+        }px)`;
+        trees.style.transform = `translate(${mouseX * 30}px, ${mouseY * 30}px)`;
+      });
+
+      // Search functionality
+      const searchInput = document.querySelector(".search-input");
+      const searchButton = document.querySelector(".search-button");
+
+      searchButton.addEventListener("click", function () {
+        const query = searchInput.value;
+        if (query.trim()) {
+          alert("Mencari: " + query);
+          // Add actual search functionality here
+        }
+      });
+
+      searchInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          searchButton.click();
+        }
+      });
+    </script>
+  </body>
+</html>

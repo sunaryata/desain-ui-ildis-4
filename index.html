@@ -3,550 +3,1231 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JDIH DPRD Kabupaten Mahakam Ulu</title>
+    <title>Landing Page JDIH</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
 
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        overflow-x: hidden;
-      }
-
-      .container {
-        min-height: 100vh;
-        background: linear-gradient(
-          135deg,
-          #ffe5b4 0%,
-          #ffb6c1 25%,
-          #ffe4e1 50%,
-          #e0ffe0 75%,
-          #e0ffff 100%
-        );
-        position: relative;
-        overflow: hidden;
-      }
-
-      /* Decorative Elements */
-      .decoration {
-        position: absolute;
-        opacity: 0.3;
-        pointer-events: none;
-      }
-
-      .decoration-left {
-        top: 0;
-        left: 0;
-        width: 250px;
-        height: 100%;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 Q60 30 50 50 Q40 30 50 10 M30 20 Q40 40 30 60 Q20 40 30 20" fill="%23228B22" opacity="0.3"/></svg>')
-          repeat-y;
-      }
-
-      .decoration-right {
-        top: 0;
-        right: 0;
-        width: 250px;
-        height: 100%;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 Q60 30 50 50 Q40 30 50 10 M70 20 Q80 40 70 60 Q60 40 70 20" fill="%23228B22" opacity="0.3"/></svg>')
-          repeat-y;
-      }
-
-      /* Navbar */
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 3rem;
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: relative;
-        z-index: 100;
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .logo-icon {
-        width: 50px;
-        height: 50px;
-        background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 24px;
-        font-weight: bold;
-      }
-
-      .nav-menu {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-        align-items: center;
-      }
-
-      .nav-menu a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-        transition: color 0.3s;
-        position: relative;
-      }
-
-      .nav-menu a:hover {
-        color: #ff6b6b;
-      }
-
-      .nav-menu a.active {
-        color: #ff6b6b;
-        border-bottom: 2px solid #ff6b6b;
-      }
-
-      .survey-btn {
-        background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-        color: white;
-        padding: 0.7rem 1.5rem;
-        border-radius: 25px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: transform 0.3s;
-      }
-
-      .survey-btn:hover {
-        transform: scale(1.05);
-      }
-
-      .badge {
-        position: absolute;
-        top: 1rem;
-        right: 3rem;
-        width: 60px;
-        height: 60px;
-        background: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      /* Main Content */
-      .main-content {
-        text-align: center;
-        padding: 3rem 2rem;
-        position: relative;
-        z-index: 10;
-      }
-
-      .main-title {
-        font-size: 1.2rem;
-        color: #333;
-        margin-bottom: 1rem;
-        font-weight: 500;
-      }
-
-      .main-heading {
-        font-size: 3rem;
-        font-weight: 800;
-        color: #2c3e50;
-        letter-spacing: 0.5rem;
-        margin-bottom: 3rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      /* Search Section */
-      .search-section {
-        max-width: 700px;
-        margin: 0 auto 2rem;
-      }
-
-      .search-box {
-        display: flex;
-        align-items: center;
-        background: white;
-        border-radius: 50px;
-        padding: 0.5rem 1.5rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        margin-bottom: 1.5rem;
-      }
-
-      .search-box i {
-        color: #999;
-        margin-right: 1rem;
-      }
-
-      .search-box input {
-        flex: 1;
-        border: none;
-        outline: none;
-        font-size: 1rem;
-        padding: 0.5rem;
-      }
-
-      .search-icon-btn {
-        background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        color: white;
-        cursor: pointer;
-        transition: transform 0.3s;
-      }
-
-      .search-icon-btn:hover {
-        transform: scale(1.1);
-      }
-
-      .advanced-search {
-        background: rgba(255, 255, 255, 0.5);
-        color: #ff6b6b;
-        border: none;
-        padding: 0.7rem 1.5rem;
-        border-radius: 25px;
-        font-weight: 600;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        transition: background 0.3s;
-      }
-
-      .advanced-search:hover {
-        background: rgba(255, 255, 255, 0.8);
-      }
-
-      /* Filter Section */
-      .filter-section {
-        max-width: 700px;
-        margin: 0 auto 3rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-
-      .filter-row {
-        display: contents;
-      }
-
-      .filter-input {
-        background: rgba(255, 255, 255, 0.7);
-        border: none;
-        padding: 1rem;
-        border-radius: 15px;
-        font-size: 0.95rem;
-        outline: none;
-        transition: background 0.3s;
-      }
-
-      .filter-input:focus {
-        background: rgba(255, 255, 255, 0.95);
-      }
-
-      .search-button {
-        grid-column: 1 / -1;
-        background: linear-gradient(135deg, #00d9a3, #00b8a9);
-        color: white;
-        border: none;
-        padding: 1rem;
-        border-radius: 15px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: transform 0.3s;
-      }
-
-      .search-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0, 217, 163, 0.4);
-      }
-
-      /* Stats Section */
-      .stats-section {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        padding: 2rem;
-      }
-
-      .stat-card {
-        background: linear-gradient(135deg, #ff8a5b, #ff6b6b);
-        color: white;
-        padding: 2.5rem 2rem;
-        border-radius: 20px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        transition: transform 0.3s;
-        cursor: pointer;
-      }
-
-      .stat-card:hover {
-        transform: translateY(-5px);
-      }
-
-      .stat-card:nth-child(2) {
-        background: linear-gradient(135deg, #ff7f50, #ff6347);
-      }
-
-      .stat-card:nth-child(3) {
-        background: linear-gradient(135deg, #ff8c69, #ff7256);
-      }
-
-      .stat-card:nth-child(4) {
-        background: linear-gradient(135deg, #ffa07a, #ff8c69);
-      }
-
-      .stat-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-      }
-
-      .stat-number {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 0.5rem;
-      }
-
-      .stat-label {
-        font-size: 1.1rem;
-        font-weight: 500;
-        opacity: 0.95;
-      }
-
-      /* Decorative Characters */
-      .character-left,
-      .character-right {
-        position: absolute;
-        bottom: 2rem;
-        font-size: 8rem;
-        opacity: 0.6;
-        pointer-events: none;
-      }
-
-      .character-left {
-        left: 2rem;
-        color: #8b4513;
-      }
-
-      .character-right {
-        right: 2rem;
-        color: #daa520;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        nav {
-          padding: 1rem;
-          flex-wrap: wrap;
-        }
-
-        .nav-menu {
-          flex-wrap: wrap;
-          gap: 1rem;
-          font-size: 0.9rem;
-        }
-
-        .main-heading {
-          font-size: 2rem;
-          letter-spacing: 0.2rem;
-        }
-
-        .filter-section {
-          grid-template-columns: 1fr;
-        }
-
-        .stats-section {
-          grid-template-columns: 1fr;
-        }
-
-        .character-left,
-        .character-right {
-          font-size: 4rem;
-        }
-      }
-    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/hero-navbar.css" />
+    <link rel="stylesheet" href="styles/search.css" />
+    <link rel="stylesheet" href="styles/laws.css" />
+    <link rel="stylesheet" href="styles/news.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/agenda.css" />
+    <link rel="stylesheet" href="styles/sites.css" />
+    <!-- <link rel="stylesheet" href="styles/carousel.css" /> -->
   </head>
-  <body>
-    <div class="container">
-      <div class="decoration decoration-left"></div>
-      <div class="decoration decoration-right"></div>
 
-      <!-- Navbar -->
-      <nav>
-        <div class="logo">
-          <div class="logo-icon">
-            <i class="fas fa-landmark"></i>
-          </div>
-        </div>
-        <ul class="nav-menu">
-          <li><a href="#" class="active">Tentang</a></li>
-          <li><a href="#">Berita</a></li>
-          <li><a href="#">Galeri</a></li>
-          <li><a href="#">Agenda AKD</a></li>
-          <li><a href="#">Dokumen</a></li>
-          <li><a href="#">Kategori</a></li>
-          <li><a href="#" class="survey-btn">Survey</a></li>
-        </ul>
-        <div class="badge">
-          <i
-            class="fas fa-certificate"
-            style="color: #ffd700; font-size: 2rem"
-          ></i>
+  <body>
+    <!-- HERO WRAPPER (BACKGROUND KHUSUS) -->
+    <section class="hero-wrapper">
+      <!-- ORNAMENT SLOTS -->
+      <div class="ornament top-left"></div>
+      <div class="ornament top-right"></div>
+      <div class="ornament bottom-left"></div>
+      <div class="ornament bottom-right"></div>
+
+      <!-- NAVBAR DALAM HERO -->
+      <nav class="navbar-wrapper">
+        <div class="navbar">
+          <img src="./logo_jdihn.png" alt="Logo Left" class="nav-logo" />
+
+          <!-- HTML - Update nav-menu -->
+          <ul class="nav-menu">
+            <li>Tentang</li>
+            <li class="has-submenu">
+              Berita
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+              <ul class="submenu">
+                <li>Berita Terbaru</li>
+                <li>Berita Legislatif</li>
+                <li>Berita Daerah</li>
+                <li>Arsip Berita</li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              Galeri
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+              <ul class="submenu">
+                <li>Foto Kegiatan</li>
+                <li>Video Dokumentasi</li>
+                <li>Album</li>
+              </ul>
+            </li>
+            <li>Agenda AKD</li>
+            <li class="has-submenu">
+              Dokumen
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+              <ul class="submenu">
+                <li>Peraturan Daerah</li>
+                <li>Keputusan DPRD</li>
+                <li>Laporan Kinerja</li>
+                <li>Dokumen Publik</li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              Kategori
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+              <ul class="submenu">
+                <li>Pemerintahan</li>
+                <li>Kesehatan</li>
+                <li>Pendidikan</li>
+                <li>Ekonomi</li>
+                <li>Lingkungan Hidup</li>
+              </ul>
+            </li>
+            <li><button class="btn-survey">Survey</button></li>
+          </ul>
+
+          <img src="./logo_jdihn.png" alt="Logo Right" class="nav-logo" />
         </div>
       </nav>
 
-      <!-- Main Content -->
-      <div class="main-content">
-        <h2 class="main-title">JARINGAN DOKUMENTASI & INFORMASI HUKUM</h2>
-        <h1 class="main-heading">DPRD KABUPATEN<br />MAHAKAM ULU</h1>
+      <!-- HERO CONTENT -->
+      <div class="hero">
+        <h2>JARINGAN DOKUMENTASI & INFORMASI HUKUM</h2>
+        <h2 class="bolder">DPRD KABUPATEN</h2>
+        <h2 class="bolder">MAHAKAM ULU</h2>
 
-        <!-- Search Section -->
-        <div class="search-section">
-          <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Cari dokumen..." />
-            <button class="search-icon-btn" onclick="performSearch()">
-              <i class="fas fa-search"></i>
-            </button>
+        <div class="search-box">
+          <input type="text" placeholder="Cari dokumen hukum..." />
+          <button>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <div class="advanced-search" id="advancedSearchBox">
+            <div class="advanced-grid">
+              <div class="filter-group">
+                <label for="jenisPeraturan">Jenis Peraturan</label>
+                <select id="jenisPeraturan">
+                  <option value="">Pilih Jenis Peraturan</option>
+                  <option value="perda">Peraturan Daerah</option>
+                  <option value="perbup">Peraturan Bupati</option>
+                  <option value="perda-provinsi">Perda Provinsi</option>
+                  <option value="uu">Undang-Undang</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="status">Status</label>
+                <select id="status">
+                  <option value="">Pilih Status</option>
+                  <option value="berlaku">Berlaku</option>
+                  <option value="dicabut">Dicabut</option>
+                  <option value="diubah">Diubah</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="tahun">Tahun</label>
+                <input
+                  type="number"
+                  id="tahun"
+                  placeholder="Masukkan tahun"
+                  min="1900"
+                  max="2026"
+                />
+              </div>
+
+              <div class="filter-group">
+                <label for="nomor">Nomor</label>
+                <input type="text" id="nomor" placeholder="Masukkan nomor" />
+              </div>
+
+              <div class="filter-group">
+                <label for="bidang">Bidang Hukum</label>
+                <select id="bidang">
+                  <option value="">Pilih Bidang</option>
+                  <option value="pemerintahan">Pemerintahan Umum</option>
+                  <option value="kesehatan">Kesehatan</option>
+                  <option value="pendidikan">Pendidikan</option>
+                  <option value="ekonomi">Ekonomi</option>
+                  <option value="lingkungan">Lingkungan Hidup</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="teuStatus">TEU Status</label>
+                <select id="teuStatus">
+                  <option value="">Pilih TEU Status</option>
+                  <option value="tercantum">Tercantum</option>
+                  <option value="tidak-tercantum">Tidak Tercantum</option>
+                </select>
+              </div>
+            </div>
           </div>
-          <button class="advanced-search">
-            <i class="fas fa-circle" style="font-size: 0.6rem"></i>
-            Pencarian Lanjutan
+        </div>
+
+        <div class="switch-wrapper">
+          <label class="switch">
+            <input type="checkbox" id="advancedSearch" />
+            <span class="slider"></span>
+          </label>
+          <span>Pencarian Lanjutan</span>
+        </div>
+
+        <div class="stats-container">
+          <div class="stat-card c1">
+            <h2>142</h2>
+            <span>Peraturan Hukum</span>
+          </div>
+          <div class="stat-card c2">
+            <h2>012</h2>
+            <span>Monografi Hukum</span>
+          </div>
+          <div class="stat-card c3">
+            <h2>031</h2>
+            <span>Artikel Hukum</span>
+          </div>
+          <div class="stat-card c4">
+            <h2>197</h2>
+            <span>Putusan Pengadilan</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="space">
+      <div class="container-fluid">
+        <!-- Header Section -->
+        <div class="section-header">
+          <h2>PRODUK HUKUM TERBARU</h2>
+          <div class="divider">
+            <img src="divider.png" alt="Divider" />
+          </div>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="law-card card-green">
+              <div class="card-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  ></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <h3 class="card-title">
+                Keputusan Wali Kota Nomor 460 Tahun 2022
+              </h3>
+              <p class="card-description">
+                Keputusan Wali Kota Bandung Nomor 460-Kep.175-Dinsos/2022
+                tentang Satuan Tugas Verifikasi Validasi dan Pemutakhiran Data
+                Terpadu Kesejahteraan Sosial, Orang Tidak Mampu dan Penerima
+                Pelayanan Kesejahteraan Sosial Kota Bandung Tahun 2022
+              </p>
+              <div class="card-stats">
+                <span class="stat-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  100
+                </span>
+                <span class="stat-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  100
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="law-card card-teal">
+              <div class="card-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  ></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <h3 class="card-title">
+                Keputusan Wali Kota Nomor 460 Tahun 2022
+              </h3>
+              <p class="card-description">
+                Keputusan Wali Kota Bandung Nomor 460-Kep.175-Dinsos/2022
+                tentang Satuan Tugas Verifikasi Validasi dan Pemutakhiran Data
+                Terpadu Kesejahteraan Sosial, Orang Tidak Mampu dan Penerima
+                Pelayanan Kesejahteraan Sosial Kota Bandung Tahun 2022
+              </p>
+              <div class="card-stats">
+                <span class="stat-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  100
+                </span>
+                <span class="stat-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  100
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="law-card card-green">
+              <div class="card-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  ></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <h3 class="card-title">
+                Keputusan Wali Kota Nomor 460 Tahun 2022
+              </h3>
+              <p class="card-description">
+                Keputusan Wali Kota Bandung Nomor 460-Kep.175-Dinsos/2022
+                tentang Satuan Tugas Verifikasi Validasi dan Pemutakhiran Data
+                Terpadu Kesejahteraan Sosial, Orang Tidak Mampu dan Penerima
+                Pelayanan Kesejahteraan Sosial Kota Bandung Tahun 2022
+              </p>
+              <div class="card-stats">
+                <span class="stat-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  100
+                </span>
+                <span class="stat-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  100
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button Lihat Semua -->
+        <div class="view-all-wrapper">
+          <button class="btn-view-all">
+            Lihat semua
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 16 16 12 12 8"></polyline>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
           </button>
         </div>
+      </div>
+    </section>
 
-        <!-- Filter Section -->
-        <div class="filter-section">
-          <select class="filter-input" id="kategori">
-            <option value="">Kategori</option>
-            <option value="perda">Peraturan Daerah</option>
-            <option value="peraturan">Peraturan DPRD</option>
-            <option value="keputusan">Keputusan DPRD</option>
-          </select>
-          <input
-            type="text"
-            class="filter-input"
-            id="subjek"
-            placeholder="Subjek/Tentang"
-          />
-          <select class="filter-input" id="tahun">
-            <option value="">Tahun</option>
-            <option value="2024">2024</option>
-            <option value="2023">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-          </select>
-          <select class="filter-input" id="status">
-            <option value="">Status Akhir</option>
-            <option value="berlaku">Berlaku</option>
-            <option value="dicabut">Dicabut</option>
-            <option value="diubah">Diubah</option>
-          </select>
-          <input
-            type="text"
-            class="filter-input"
-            id="nomor"
-            placeholder="Nomor"
-            style="grid-column: 1 / -1"
-          />
-          <button class="search-button" onclick="performSearch()">
-            Search
+    <section class="space">
+      <div class="container-fluid">
+        <!-- Header Section -->
+        <div class="section-header">
+          <h2>PRODUK HUKUM TERPOPULER</h2>
+          <div class="divider">
+            <img src="divider.png" alt="Divider" />
+          </div>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="law-card card-green">
+              <div class="card-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  ></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <h3 class="card-title">
+                Keputusan Wali Kota Nomor 460 Tahun 2022
+              </h3>
+              <p class="card-description">
+                Keputusan Wali Kota Bandung Nomor 460-Kep.175-Dinsos/2022
+                tentang Satuan Tugas Verifikasi Validasi dan Pemutakhiran Data
+                Terpadu Kesejahteraan Sosial, Orang Tidak Mampu dan Penerima
+                Pelayanan Kesejahteraan Sosial Kota Bandung Tahun 2022
+              </p>
+              <div class="card-stats">
+                <span class="stat-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  100
+                </span>
+                <span class="stat-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  100
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="law-card card-teal">
+              <div class="card-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  ></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <h3 class="card-title">
+                Keputusan Wali Kota Nomor 460 Tahun 2022
+              </h3>
+              <p class="card-description">
+                Keputusan Wali Kota Bandung Nomor 460-Kep.175-Dinsos/2022
+                tentang Satuan Tugas Verifikasi Validasi dan Pemutakhiran Data
+                Terpadu Kesejahteraan Sosial, Orang Tidak Mampu dan Penerima
+                Pelayanan Kesejahteraan Sosial Kota Bandung Tahun 2022
+              </p>
+              <div class="card-stats">
+                <span class="stat-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  100
+                </span>
+                <span class="stat-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  100
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="law-card card-green">
+              <div class="card-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  ></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <h3 class="card-title">
+                Keputusan Wali Kota Nomor 460 Tahun 2022
+              </h3>
+              <p class="card-description">
+                Keputusan Wali Kota Bandung Nomor 460-Kep.175-Dinsos/2022
+                tentang Satuan Tugas Verifikasi Validasi dan Pemutakhiran Data
+                Terpadu Kesejahteraan Sosial, Orang Tidak Mampu dan Penerima
+                Pelayanan Kesejahteraan Sosial Kota Bandung Tahun 2022
+              </p>
+              <div class="card-stats">
+                <span class="stat-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  100
+                </span>
+                <span class="stat-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  100
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button Lihat Semua -->
+        <div class="view-all-wrapper">
+          <button class="btn-view-all">
+            Lihat semua
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 16 16 12 12 8"></polyline>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
           </button>
         </div>
+      </div>
+    </section>
 
-        <!-- Stats Section -->
-        <div class="stats-section">
-          <div class="stat-card">
-            <div class="stat-icon"><i class="fas fa-file-alt"></i></div>
-            <div class="stat-number">012</div>
-            <div class="stat-label">Monografi Hukum</div>
+    <section class="space">
+      <div class="container-fluid">
+        <div class="col-lg-12 my-4">
+          <img
+            src="banner1.png"
+            alt="Banner"
+            style="width: 100%; height: auto"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENDA AKD SECTION -->
+
+    <section class="news-section">
+      <div class="container-fluid">
+        <!-- Section Header -->
+        <div class="section-header">
+          <h2>Berita Terkini</h2>
+          <div class="divider">
+            <img src="divider.png" alt="Divider" />
           </div>
-          <div class="stat-card">
-            <div class="stat-icon"><i class="fas fa-book"></i></div>
-            <div class="stat-number">031</div>
-            <div class="stat-label">Artikel Hukum</div>
+        </div>
+
+        <!-- News Cards Grid -->
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-12 col-sm-12 col-lg-12">
+            <div class="carousel-container">
+              <button class="carousel-button prev" onclick="prevSlide()">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+
+              <div class="carousel-wrapper">
+                <div class="carousel-track" id="carouselTrack">
+                  <!-- Slide 1 -->
+                  <div class="carousel-slide">
+                    <div class="news-card-carousel">
+                      <div class="news-card-image-carousel">
+                        <img
+                          src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop"
+                          alt="Rapat Paripurna"
+                        />
+                      </div>
+                      <div class="news-card-content-carousel">
+                        <h3 class="news-card-title-carousel">
+                          Rapat Paripurna Umumkan Calon Pimpinan DPRD dari PDI
+                          Perjuangan serta 6 Usulan Raperda
+                        </h3>
+                        <p class="news-card-excerpt">
+                          HumasDPRD- DPRD Kota Bandung menggelar rapat
+                          paripurna, di Gedung DPRD Kota Bandung, Jumat, 1
+                          November 2024. Agenda rapat kali ini untuk mengumumkan
+                          Penggantian Calon Pimpinan DPRD Kota Bandung Masa
+                          Jabatan 2024-2029 dari PDI Perjuangan.
+                        </p>
+                        <a href="#" class="news-card-link-carousel">
+                          Lihat Selengkapnya
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Slide 2 -->
+                  <div class="carousel-slide">
+                    <div class="news-card-carousel">
+                      <div class="news-card-image-carousel">
+                        <img
+                          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop"
+                          alt="Pembahasan Anggaran"
+                        />
+                      </div>
+                      <div class="news-card-content-carousel">
+                        <h3 class="news-card-title-carousel">
+                          Pembahasan APBD 2025 Memasuki Tahap Akhir dengan Fokus
+                          Pembangunan Infrastruktur
+                        </h3>
+                        <p class="news-card-excerpt">
+                          DPRD Kabupaten Mahakam Ulu menggelar rapat pembahasan
+                          Anggaran Pendapatan dan Belanja Daerah (APBD) tahun
+                          2025. Pembahasan difokuskan pada alokasi anggaran
+                          untuk pembangunan infrastruktur dan peningkatan
+                          kesejahteraan masyarakat.
+                        </p>
+                        <a href="#" class="news-card-link-carousel">
+                          Lihat Selengkapnya
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Slide 3 -->
+                  <div class="carousel-slide">
+                    <div class="news-card-carousel">
+                      <div class="news-card-image-carousel">
+                        <img
+                          src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=600&h=400&fit=crop"
+                          alt="Kunjungan Kerja"
+                        />
+                      </div>
+                      <div class="news-card-content-carousel">
+                        <h3 class="news-card-title-carousel">
+                          Komisi III DPRD Lakukan Kunjungan Kerja ke Desa-desa
+                          Terpencil untuk Mendengar Aspirasi Masyarakat
+                        </h3>
+                        <p class="news-card-excerpt">
+                          Dalam rangka menjalankan fungsi pengawasan dan
+                          penyerapan aspirasi, Komisi III DPRD Kabupaten Mahakam
+                          Ulu melakukan kunjungan kerja ke beberapa desa
+                          terpencil. Kunjungan ini bertujuan untuk mendengar
+                          langsung keluhan dan harapan masyarakat.
+                        </p>
+                        <a href="#" class="news-card-link-carousel">
+                          Lihat Selengkapnya
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="carousel-button next" onclick="nextSlide()">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+
+            <div class="carousel-indicators" id="indicators"></div>
           </div>
-          <div class="stat-card">
-            <div class="stat-icon"><i class="fas fa-balance-scale"></i></div>
-            <div class="stat-number">197</div>
-            <div class="stat-label">Putusan Pengadilan</div>
+        </div>
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-12 col-sm-12 col-lg-6">
+            <div class="news-card">
+              <div class="news-card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop"
+                  alt="Rapat Paripurna"
+                />
+              </div>
+              <div class="news-card-content">
+                <h3 class="news-card-title">
+                  Rapat Paripurna Umumkan Calon Pimpinan DPRD dari PDI
+                  Perjuangan serta 6 Usulan Raperda
+                </h3>
+                <a href="#" class="news-card-link">
+                  Baca selengkapnya...
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="stat-card">
-            <div class="stat-icon"><i class="fas fa-file-contract"></i></div>
-            <div class="stat-number">012</div>
-            <div class="stat-label">Monografi Hukum</div>
+
+          <!-- Card 2 -->
+          <div class="col-12 col-sm-12 col-lg-6">
+            <div class="news-card">
+              <div class="news-card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop"
+                  alt="Rapat Paripurna"
+                />
+              </div>
+              <div class="news-card-content">
+                <h3 class="news-card-title">
+                  Rapat Paripurna Umumkan Calon Pimpinan DPRD dari PDI
+                  Perjuangan serta 6 Usulan Raperda
+                </h3>
+                <a href="#" class="news-card-link">
+                  Baca selengkapnya...
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-12 col-sm-12 col-lg-6">
+            <div class="news-card">
+              <div class="news-card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=400&h=300&fit=crop"
+                  alt="Rapat Paripurna"
+                />
+              </div>
+              <div class="news-card-content">
+                <h3 class="news-card-title">
+                  Rapat Paripurna Umumkan Calon Pimpinan DPRD dari PDI
+                  Perjuangan serta 6 Usulan Raperda
+                </h3>
+                <a href="#" class="news-card-link">
+                  Baca selengkapnya...
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-12 col-sm-12 col-lg-6">
+            <div class="news-card">
+              <div class="news-card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=300&fit=crop"
+                  alt="Rapat Paripurna"
+                />
+              </div>
+              <div class="news-card-content">
+                <h3 class="news-card-title">
+                  Rapat Paripurna Umumkan Calon Pimpinan DPRD dari PDI
+                  Perjuangan serta 6 Usulan Raperda
+                </h3>
+                <a href="#" class="news-card-link">
+                  Baca selengkapnya...
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Decorative Characters -->
-      <div class="character-left">
-        <i class="fas fa-mask"></i>
+      <!-- View All Button -->
+      <div class="view-all-wrapper">
+        <button class="btn-view-all">
+          Lihat semua
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 16 16 12 12 8"></polyline>
+            <line x1="8" y1="12" x2="16" y2="12"></line>
+          </svg>
+        </button>
       </div>
-      <div class="character-right">
-        <i class="fas fa-dove"></i>
+    </section>
+
+    <section class="agenda-section space">
+      <div class="container-fluid">
+        <div class="row g-4 mt-4">
+          <!-- Left Content - 8 Grid -->
+          <div class="col-lg-8">
+            <div class="agenda-image-wrapper">
+              <img
+                src="Frame 35.png"
+                alt="DPRD Mahakam Ulu"
+                class="agenda-bg-image"
+              />
+              <div class="agenda-overlay">
+                <h2 class="agenda-title">AGENDA AKD</h2>
+                <div class="agenda-list">
+                  <div class="agenda-item">
+                    <div class="agenda-icon">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div class="agenda-content">
+                      <h4>Agenda Kegiatan DPRD Kota Bandung Jumat</h4>
+                      <p>31 Oktober 2025</p>
+                    </div>
+                  </div>
+                  <div class="agenda-item">
+                    <div class="agenda-icon">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div class="agenda-content">
+                      <h4>Agenda Kegiatan DPRD Kota Bandung Jumat</h4>
+                      <p>31 Oktober 2025</p>
+                    </div>
+                  </div>
+                  <div class="agenda-item">
+                    <div class="agenda-icon">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div class="agenda-content">
+                      <h4>Agenda Kegiatan DPRD Kota Bandung Jumat</h4>
+                      <p>31 Oktober 2025</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- <button class="btn-lihat-semua">
+                  Lihat semua
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Content - 4 Grid -->
+          <div class="col-lg-4">
+            <div id="map" class="map-container"></div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section class="space">
+      <div class="container-fluid">
+        <!-- Section Header -->
+        <div class="section-header">
+          <h2>Situs Terkait</h2>
+          <div class="divider">
+            <img src="divider.png" alt="Divider" />
+          </div>
+        </div>
+
+        <!-- Situs Cards Grid -->
+        <div class="row g-4">
+          <!-- Card 1: Portal JDIHN -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="situs-card">
+              <div class="situs-logo">
+                <img src="./logo_jdihn.png" alt="Portal JDIHN" />
+              </div>
+              <div class="situs-title">PORTAL JDIHN</div>
+            </a>
+          </div>
+
+          <!-- Card 2: JDIH Kalimantan Timur -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="situs-card">
+              <div class="situs-logo">
+                <img src="./logo_jdihn.png" alt="JDIH Kalimantan Timur" />
+              </div>
+              <div class="situs-title">JDIH KALIMANTAN TIMUR</div>
+            </a>
+          </div>
+
+          <!-- Card 3: KANWIL Kemenkumham Kaltim -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="situs-card">
+              <div class="situs-logo">
+                <img src="./image 5.png" alt="KANWIL KEMENKUMHAM KALTIM" />
+              </div>
+              <div class="situs-title">KANWIL KEMENKUMHAM KALTIM</div>
+            </a>
+          </div>
+
+          <!-- Card 4: JDIH Mahakam Ulu -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="situs-card">
+              <div class="situs-logo">
+                <img src="./logo_jdihn.png" alt="JDIH Mahakam Ulu" />
+              </div>
+              <div class="situs-title">JDIH MAHAKAM ULU</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div class="row g-4">
+          <!-- Logo & Title Section -->
+          <div class="col-lg-5 col-md-12">
+            <div class="footer-logo-section">
+              <div class="footer-logo">
+                <img
+                  src="./logo_jdihn.png"
+                  alt="Logo JDIH"
+                  onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-landmark\' style=\'font-size: 40px; color: #ff5555;\'></i>'"
+                />
+              </div>
+              <div class="footer-logo">
+                <img
+                  src="./logo_jdihn.png"
+                  alt="Logo Kabupaten"
+                  onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-building-shield\' style=\'font-size: 40px; color: #ff5555;\'></i>'"
+                />
+              </div>
+            </div>
+            <div class="footer-title">
+              <h3>Jaringan Dokumentasi dan Informasi Hukum</h3>
+              <h3>Dewan Perwakilan Rakyat Daerah</h3>
+              <h3>Kabupaten Mahakam Ulu</h3>
+            </div>
+          </div>
+
+          <!-- Social Media Section -->
+          <div class="col-lg-3 col-md-6">
+            <div class="social-section">
+              <h4>Ikuti Kami</h4>
+              <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="Instagram">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="YouTube">
+                  <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="Facebook">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="TikTok">
+                  <i class="fa-brands fa-tiktok"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Statistics Section -->
+          <div class="col-lg-4 col-md-6">
+            <div class="stats-section">
+              <h4>Statistik Pengunjung</h4>
+              <ul class="stats-list">
+                <li>
+                  <span>Online</span>
+                  <span class="stat-value">10</span>
+                </li>
+                <li>
+                  <span>Hari Ini</span>
+                  <span class="stat-value">120</span>
+                </li>
+                <li>
+                  <span>Kemarin</span>
+                  <span class="stat-value">450</span>
+                </li>
+                <li>
+                  <span>Minggu Ini</span>
+                  <span class="stat-value">1000</span>
+                </li>
+                <li>
+                  <span>Bulan Ini</span>
+                  <span class="stat-value">2108</span>
+                </li>
+                <li>
+                  <span>Total</span>
+                  <span class="stat-value">3760</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          Copyright © 2026 JDIH DPRD Kabupaten Mahakam Ulu Hak Cipta Dilindungi
+          Undang-undang
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 
     <script>
-      function performSearch() {
-        const searchInput = document.getElementById("searchInput").value;
-        const kategori = document.getElementById("kategori").value;
-        const subjek = document.getElementById("subjek").value;
-        const tahun = document.getElementById("tahun").value;
-        const status = document.getElementById("status").value;
-        const nomor = document.getElementById("nomor").value;
+      const toggle = document.getElementById("advancedSearch");
+      const advancedBox = document.getElementById("advancedSearchBox");
 
-        console.log("Pencarian:", {
-          searchInput,
-          kategori,
-          subjek,
-          tahun,
-          status,
-          nomor,
-        });
+      toggle.addEventListener("change", () => {
+        if (toggle.checked) {
+          advancedBox.classList.add("active");
+          console.log("Pencarian lanjutan aktif");
+        } else {
+          advancedBox.classList.remove("active");
+          console.log("Pencarian lanjutan nonaktif");
+        }
+      });
+    </script>
 
-        alert("Fitur pencarian akan segera tersedia!");
-      }
+    <script>
+      // Inisialisasi peta dengan koordinat dan zoom level
+      const map = L.map("map").setView([-6.2088, 106.8456], 13); // Contoh: Jakarta
 
-      // Enter key support
-      document
-        .getElementById("searchInput")
-        .addEventListener("keypress", function (e) {
-          if (e.key === "Enter") {
-            performSearch();
-          }
-        });
+      // Tambahkan tile layer dari OpenStreetMap
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+      }).addTo(map);
 
-      // Stat card click animation
-      document.querySelectorAll(".stat-card").forEach((card) => {
-        card.addEventListener("click", function () {
-          const label = this.querySelector(".stat-label").textContent;
-          alert(`Menampilkan detail untuk: ${label}`);
-        });
+      // Tambahkan marker di lokasi tertentu
+      const marker = L.marker([-6.2088, 106.8456]).addTo(map);
+
+      // Tambahkan popup ke marker
+      marker.bindPopup("<b>Lokasi Anda</b><br>Jakarta, Indonesia").openPopup();
+
+      // Contoh menambahkan circle
+      const circle = L.circle([-6.2088, 106.8456], {
+        color: "red",
+        fillColor: "#f03",
+        fillOpacity: 0.5,
+        radius: 500,
+      }).addTo(map);
+
+      // Contoh menambahkan polygon
+      const polygon = L.polygon([
+        [-6.21, 106.84],
+        [-6.21, 106.85],
+        [-6.2, 106.85],
+      ]).addTo(map);
+
+      // Event listener untuk klik pada peta
+      map.on("click", function (e) {
+        const popup = L.popup()
+          .setLatLng(e.latlng)
+          .setContent("Koordinat: " + e.latlng.toString())
+          .openOn(map);
       });
 
-      // Smooth scroll for navigation
-      document.querySelectorAll(".nav-menu a").forEach((link) => {
-        link.addEventListener("click", function (e) {
-          if (this.getAttribute("href") === "#") {
-            e.preventDefault();
+      // Custom icon (opsional)
+      const customIcon = L.icon({
+        iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32],
+      });
+
+      // Tambahkan marker dengan custom icon
+      // L.marker([-6.2088, 106.8456], {icon: customIcon}).addTo(map);
+    </script>
+
+    <script>
+      let currentSlide = 0;
+      const track = document.getElementById("carouselTrack");
+      const slides = document.querySelectorAll(".carousel-slide");
+      const totalSlides = slides.length;
+      const indicatorsContainer = document.getElementById("indicators");
+
+      // Create indicators
+      for (let i = 0; i < totalSlides; i++) {
+        const indicator = document.createElement("div");
+        indicator.classList.add("indicator");
+        if (i === 0) indicator.classList.add("active");
+        indicator.onclick = () => goToSlide(i);
+        indicatorsContainer.appendChild(indicator);
+      }
+
+      function updateCarousel() {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        updateIndicators();
+      }
+
+      function updateIndicators() {
+        const indicators = document.querySelectorAll(".indicator");
+        indicators.forEach((indicator, index) => {
+          if (index === currentSlide) {
+            indicator.classList.add("active");
+          } else {
+            indicator.classList.remove("active");
           }
         });
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      }
+
+      function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+      }
+
+      // Auto-play carousel
+      let autoPlay = setInterval(nextSlide, 5000);
+
+      // Pause on hover
+      const carouselContainer = document.querySelector(".carousel-container");
+      carouselContainer.addEventListener("mouseenter", () => {
+        clearInterval(autoPlay);
+      });
+
+      carouselContainer.addEventListener("mouseleave", () => {
+        autoPlay = setInterval(nextSlide, 5000);
       });
     </script>
   </body>

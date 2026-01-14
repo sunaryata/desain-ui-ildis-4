@@ -1,0 +1,241 @@
+/* ================= AGENDA AKD SECTION ================= */
+.agenda-section {
+  padding: 80px 24px;
+  background: #f8fafc;
+}
+
+.agenda-image-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 600px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.agenda-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.agenda-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.agenda-title {
+  font-size: 72px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -2px;
+  margin-bottom: 60px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  line-height: 1;
+  align-content: center;
+}
+
+.agenda-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.agenda-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px;
+  /* background: rgba(255, 255, 255, 0.1); */
+  /* backdrop-filter: blur(10px); */
+  /* border-radius: 16px; */
+  /* border-left: 4px solid #ff5555; */
+  /* transition: all 0.3s ease; */
+}
+
+/* .agenda-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(8px);
+  border-left-color: #ff7a7a;
+} */
+
+.agenda-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ff5555, #ff7a7a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(255, 85, 85, 0.4);
+}
+
+.agenda-icon i {
+  color: white;
+  font-size: 16px;
+}
+
+.agenda-content h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.agenda-content p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.btn-lihat-semua {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #ff5555, #ff7a7a);
+  border: none;
+  color: white;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(255, 85, 85, 0.4);
+}
+
+.btn-lihat-semua:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 85, 85, 0.5);
+}
+
+.btn-lihat-semua i {
+  transition: transform 0.3s ease;
+}
+
+.btn-lihat-semua:hover i {
+  transform: translateX(4px);
+}
+
+/* Map Container */
+.map-container {
+  height: 600px;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border: 3px solid #e2e8f0;
+}
+
+/* Leaflet Custom Styling */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-popup-content {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .agenda-image-wrapper {
+    height: 500px;
+    margin-bottom: 24px;
+  }
+
+  .agenda-overlay {
+    padding: 40px;
+  }
+
+  .agenda-title {
+    font-size: 48px;
+    margin-bottom: 40px;
+  }
+
+  .map-container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .agenda-section {
+    padding: 60px 16px;
+  }
+
+  .agenda-image-wrapper {
+    height: 450px;
+  }
+
+  .agenda-overlay {
+    padding: 30px;
+  }
+
+  .agenda-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .agenda-item {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .agenda-content h4 {
+    font-size: 16px;
+  }
+
+  .agenda-content p {
+    font-size: 13px;
+  }
+
+  .btn-lihat-semua {
+    padding: 14px 32px;
+    font-size: 15px;
+    align-self: stretch;
+    justify-content: center;
+  }
+
+  .map-container {
+    height: 350px;
+  }
+}
+
+@media (max-width: 576px) {
+  .agenda-title {
+    font-size: 28px;
+  }
+
+  .agenda-overlay {
+    padding: 24px;
+  }
+
+  .agenda-item {
+    flex-direction: row;
+    padding: 16px;
+  }
+
+  .agenda-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .agenda-icon i {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,273 @@
+/* ================= HERO WRAPPER ================= */
+.hero-wrapper {
+  position: relative;
+  min-height: 90vh;
+  background: linear-gradient(rgba(234, 247, 241, 0.15), rgba(17, 17, 17, 0.15)),
+    url("../FULL@4x.png") center / cover no-repeat;
+  border-bottom-left-radius: 20vh;
+  border-bottom-right-radius: 20vh;
+}
+.hero-wrapper-alt {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(rgba(234, 247, 241, 0.15), rgba(17, 17, 17, 0.15)),
+    url("../background-alt.png") center / cover no-repeat;
+}
+
+/* ================= ORNAMENT SLOTS ================= */
+.ornament {
+  position: absolute;
+}
+
+.ornament.top-left {
+  width: 300px;
+  height: 500px;
+  top: 0;
+  left: 0;
+  background: url("../ornamentleft.png") center / cover no-repeat;
+  opacity: 0.4;
+}
+
+.ornament.top-right {
+  width: 300px;
+  height: 500px;
+  top: 0;
+  right: 0;
+  background: url("../ornamentright.png") center / cover no-repeat;
+  opacity: 0.4;
+}
+
+.ornament.bottom-left {
+  width: 500px;
+  height: 500px;
+  bottom: 0rem;
+  left: 0;
+  background: url("../c21e38721bd44dc5d7470cd2ad8ac882e51984dd.png") center /
+    cover no-repeat;
+  overflow: hidden;
+}
+
+.ornament.bottom-right {
+  width: 400px;
+  height: 400px;
+  bottom: 2rem;
+  right: 0;
+  background: url("../787f0c69006efdb3a38f33110d9b0515f6a5d994.png") center /
+    cover no-repeat;
+  overflow: hidden;
+}
+
+/* ================= NAVBAR ================= */
+.navbar-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.navbar {
+  width: 80%;
+  height: 72px;
+  background: #ffffff;
+  border-radius: 50px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.nav-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  cursor: pointer;
+}
+
+.nav-menu li:hover {
+  color: var(--primary);
+}
+
+/* CSS - Update/tambahkan ke dalam style */
+
+/* Submenu Styles */
+.nav-menu .has-submenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-menu .arrow-icon {
+  font-size: 10px;
+  transition: transform 0.3s ease;
+}
+
+.nav-menu .has-submenu:hover .arrow-icon {
+  transform: rotate(180deg);
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 12px 0;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  z-index: 1000;
+  list-style: none; /* Hilangkan dot */
+}
+
+.has-submenu:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 10px;
+}
+
+.submenu li {
+  padding: 10px 20px;
+  color: var(--muted);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  list-style: none; /* Hilangkan dot */
+}
+
+.submenu li:hover {
+  background: #f8fafc;
+  color: var(--primary);
+  padding-left: 24px;
+}
+
+/* Arrow indicator sebelum submenu muncul */
+.submenu::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: white;
+  rotate: 45deg;
+  box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Underline effect untuk main menu */
+.nav-menu > li {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-menu > li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-menu > li:hover::after {
+  width: 100%;
+}
+
+/* Pastikan button survey tidak ada underline */
+.nav-menu > li:has(.btn-survey)::after {
+  display: none;
+}
+
+.btn-survey {
+  background: linear-gradient(135deg, #ff7a7a, var(--primary));
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  /* bottom: -70px;
+  margin-top: -50px; */
+  min-height: calc(100vh - 250px);
+  justify-content: flex-start;
+  padding: 100px 32px 32px 32px;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+}
+
+.hero h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+}
+
+.hero h2.bolder {
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.hero span.title-text {
+  font-size: clamp(32px, 4.5vw, 80px); /* skala sedikit lebih besar */
+  font-weight: 900;
+  letter-spacing: 0.12em;
+
+  color: white; /* misal teks putih */
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* text border hitam tipis */
+}
+
+.hero h3 {
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.05em;
+}
+
+.hero p {
+  font-size: 18px;
+  color: var(--muted);
+}

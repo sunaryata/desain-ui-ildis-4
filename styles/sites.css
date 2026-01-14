@@ -1,0 +1,99 @@
+/* Situs Terkait Cards */
+.situs-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: inherit;
+}
+
+.situs-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary);
+}
+
+.situs-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  background: #f8fafc;
+  border: 3px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.situs-card:hover .situs-logo {
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+.situs-logo img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.situs-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  section.space {
+    padding: 60px 16px;
+  }
+
+  .section-header h2 {
+    font-size: 24px;
+  }
+
+  .divider img {
+    max-width: 200px;
+  }
+
+  .situs-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .situs-logo img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .situs-title {
+    font-size: 12px;
+  }
+
+  .situs-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .situs-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .situs-logo img {
+    width: 50px;
+    height: 50px;
+  }
+}

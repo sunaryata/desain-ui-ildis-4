@@ -1,0 +1,350 @@
+/* ================= NEWS SECTION ================= */
+.news-section {
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================= CAROUSEL ================= */
+.carousel-container {
+  margin: 0 auto 48px;
+  position: relative;
+  padding: 0 80px;
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  padding: 0;
+}
+
+/* News Card Carousel - Styling yang sama dengan news-card */
+.news-card-carousel {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 2px solid #f1f5f9;
+  display: flex;
+  flex-direction: row;
+  height: 350px;
+  transition: all 0.3s ease;
+}
+
+.news-card-image-carousel {
+  width: 45%;
+  min-width: 45%;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.news-card-image-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-card-carousel:hover .news-card-image-carousel img {
+  transform: scale(1.05);
+}
+
+.news-card-content-carousel {
+  padding: 40px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.news-card-title-carousel {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.news-card-excerpt {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card-link-carousel {
+  color: #3b82f6;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.news-card-link-carousel:hover {
+  color: #2563eb;
+  gap: 12px;
+}
+
+/* Navigation Buttons */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 2px solid #e2e8f0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.carousel-button:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 85, 85, 0.3);
+}
+
+.carousel-button.prev {
+  left: 0;
+}
+
+.carousel-button.next {
+  right: 0;
+}
+
+.carousel-button i {
+  font-size: 20px;
+  color: inherit;
+}
+
+/* Indicators */
+.carousel-indicators {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+  margin-bottom: 48px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--primary);
+  width: 32px;
+  border-radius: 6px;
+}
+
+/* ================= NEWS CARD (Grid) ================= */
+.news-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid #f1f5f9;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.news-card-image {
+  position: relative;
+  width: 120px;
+  min-width: 120px;
+  height: 120px;
+  overflow: hidden;
+  background: #e2e8f0;
+  margin: 16px;
+  border-radius: 12px;
+}
+
+.news-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-card-image img {
+  transform: scale(1.05);
+}
+
+.news-card-content {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card-link {
+  color: #3b82f6;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.news-card-link:hover {
+  color: #2563eb;
+  gap: 8px;
+}
+
+/* View All Button */
+.view-all-wrapper {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.btn-view-all {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-view-all:hover {
+  background: #ff3333;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 85, 85, 0.3);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .carousel-container {
+    padding: 0 60px;
+  }
+
+  .news-card-carousel {
+    height: auto;
+  }
+
+  .news-card-content-carousel {
+    padding: 32px;
+  }
+
+  .news-card-title-carousel {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    padding: 0 50px;
+  }
+
+  .news-card-carousel {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .news-card-image-carousel {
+    width: 100%;
+    height: 250px;
+  }
+
+  .news-card-content-carousel {
+    padding: 28px;
+  }
+
+  .news-card-title-carousel {
+    font-size: 18px;
+  }
+
+  .carousel-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .news-card-content {
+    padding: 20px;
+  }
+
+  .news-card-title {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-container {
+    padding: 0 40px;
+  }
+
+  .carousel-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-button i {
+    font-size: 16px;
+  }
+
+  .news-card {
+    flex-direction: column;
+  }
+
+  .news-card-image {
+    width: 100%;
+    height: 180px;
+    margin: 0;
+    border-radius: 0;
+  }
+}

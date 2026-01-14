@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LIST PERATURAN JDIH</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/hero-navbar.css" />
+    <link rel="stylesheet" href="styles/search.css" />
+    <link rel="stylesheet" href="styles/laws.css" />
+    <link rel="stylesheet" href="styles/news.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/agenda.css" />
+    <link rel="stylesheet" href="styles/sites.css" />
+    <!-- <link rel="stylesheet" href="styles/carousel.css" /> -->
+  </head>
+
+  <body>
+    <!-- HERO WRAPPER (BACKGROUND KHUSUS) -->
+    <section class="hero-wrapper-alt">
+      <!-- NAVBAR DALAM HERO -->
+      <nav class="navbar-wrapper">
+        <div class="navbar">
+          <img src="./logo_jdihn.png" alt="Logo Left" class="nav-logo" />
+
+          <!-- HTML - Update nav-menu -->
+          <ul class="nav-menu">
+            <li>Tentang</li>
+            <li class="has-submenu">
+              Berita
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+              <ul class="submenu">
+                <li>Berita Terbaru</li>
+                <li>Berita Legislatif</li>
+                <li>Berita Daerah</li>
+                <li>Arsip Berita</li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              Galeri
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+              <ul class="submenu">
+                <li>Foto Kegiatan</li>
+                <li>Video Dokumentasi</li>
+                <li>Album</li>
+              </ul>
+            </li>
+            <li>Agenda AKD</li>
+            <li class="has-submenu">
+              Dokumen
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+              <ul class="submenu">
+                <li>Peraturan Daerah</li>
+                <li>Keputusan DPRD</li>
+                <li>Laporan Kinerja</li>
+                <li>Dokumen Publik</li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              Kategori
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+              <ul class="submenu">
+                <li>Pemerintahan</li>
+                <li>Kesehatan</li>
+                <li>Pendidikan</li>
+                <li>Ekonomi</li>
+                <li>Lingkungan Hidup</li>
+              </ul>
+            </li>
+            <li><button class="btn-survey">Survey</button></li>
+          </ul>
+
+          <img src="./logo_jdihn.png" alt="Logo Right" class="nav-logo" />
+        </div>
+      </nav>
+
+      <!-- HERO CONTENT -->
+      <div class="hero">
+        <span class="bolder title-text text-white">PERATURAN HUKUM</span>
+
+        <div class="search-box">
+          <input type="text" placeholder="Cari dokumen hukum..." />
+          <button>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <div class="advanced-search" id="advancedSearchBox">
+            <div class="advanced-grid">
+              <div class="filter-group">
+                <label for="jenisPeraturan">Jenis Peraturan</label>
+                <select id="jenisPeraturan">
+                  <option value="">Pilih Jenis Peraturan</option>
+                  <option value="perda">Peraturan Daerah</option>
+                  <option value="perbup">Peraturan Bupati</option>
+                  <option value="perda-provinsi">Perda Provinsi</option>
+                  <option value="uu">Undang-Undang</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="status">Status</label>
+                <select id="status">
+                  <option value="">Pilih Status</option>
+                  <option value="berlaku">Berlaku</option>
+                  <option value="dicabut">Dicabut</option>
+                  <option value="diubah">Diubah</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="tahun">Tahun</label>
+                <input
+                  type="number"
+                  id="tahun"
+                  placeholder="Masukkan tahun"
+                  min="1900"
+                  max="2026"
+                />
+              </div>
+
+              <div class="filter-group">
+                <label for="nomor">Nomor</label>
+                <input type="text" id="nomor" placeholder="Masukkan nomor" />
+              </div>
+
+              <div class="filter-group">
+                <label for="bidang">Bidang Hukum</label>
+                <select id="bidang">
+                  <option value="">Pilih Bidang</option>
+                  <option value="pemerintahan">Pemerintahan Umum</option>
+                  <option value="kesehatan">Kesehatan</option>
+                  <option value="pendidikan">Pendidikan</option>
+                  <option value="ekonomi">Ekonomi</option>
+                  <option value="lingkungan">Lingkungan Hidup</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="teuStatus">TEU Status</label>
+                <select id="teuStatus">
+                  <option value="">Pilih TEU Status</option>
+                  <option value="tercantum">Tercantum</option>
+                  <option value="tidak-tercantum">Tidak Tercantum</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="switch-wrapper">
+          <label class="switch">
+            <input type="checkbox" id="advancedSearch" />
+            <span class="slider"></span>
+          </label>
+          <span class="text-white">Pencarian Lanjutan</span>
+        </div>
+      </div>
+    </section>
+    <section class="space">
+      <div class="container-fluid">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <div class="law-section">
+              <h2>Peraturan Hukum</h2>
+              <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                <div class="law-card card-green">
+                  <div class="card-icon">
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      ></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">
+                    Keputusan Wali Kota Nomor 460 Tahun 2022
+                  </h3>
+                  <p class="card-description">
+                    Keputusan Wali Kota Bandung Nomor 460-Kep.175-Dinsos/2022
+                    tentang Satuan Tugas Verifikasi Validasi dan Pemutakhiran
+                    Data Terpadu Kesejahteraan Sosial, Orang Tidak Mampu dan
+                    Penerima Pelayanan Kesejahteraan Sosial Kota Bandung Tahun
+                    2022
+                  </p>
+                  <div class="card-stats">
+                    <span class="stat-item">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                        ></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                      </svg>
+                      100
+                    </span>
+                    <span class="stat-item">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                        ></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                      100
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                <div class="law-card card-teal">
+                  <div class="card-icon">
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      ></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">
+                    Keputusan Wali Kota Nomor 460 Tahun 2022
+                  </h3>
+                  <p class="card-description">
+                    Keputusan Wali Kota Bandung Nomor 460-Kep.175-Dinsos/2022
+                    tentang Satuan Tugas Verifikasi Validasi dan Pemutakhiran
+                    Data Terpadu Kesejahteraan Sosial, Orang Tidak Mampu dan
+                    Penerima Pelayanan Kesejahteraan Sosial Kota Bandung Tahun
+                    2022
+                  </p>
+                  <div class="card-stats">
+                    <span class="stat-item">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                        ></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                      </svg>
+                      100
+                    </span>
+                    <span class="stat-item">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                        ></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                      100
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="category-section">
+              <h2>Kategori Produk Hukum</h2>
+              <ul class="category-list">
+                <li class="category-item">
+                  <div class="category-item-content">
+                    <i class="fa-regular fa-file-lines category-icon"></i>
+                    <span class="category-name">Undang - Undang</span>
+                  </div>
+                  <span class="category-count">012</span>
+                </li>
+              </ul>
+            </div>
+            <div class="category-section">
+              <h2>Tahun Produk Hukum</h2>
+              <ul class="category-list">
+                <li class="category-item">
+                  <div class="category-item-content">
+                    <i class="fa-regular fa-file-lines category-icon"></i>
+                    <span class="category-name">Undang - Undang</span>
+                  </div>
+                  <span class="category-count">012</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div class="row g-4">
+          <!-- Logo & Title Section -->
+          <div class="col-lg-5 col-md-12">
+            <div class="footer-logo-section">
+              <div class="footer-logo">
+                <img
+                  src="./logo_jdihn.png"
+                  alt="Logo JDIH"
+                  onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-landmark\' style=\'font-size: 40px; color: #ff5555;\'></i>'"
+                />
+              </div>
+              <div class="footer-logo">
+                <img
+                  src="./logo_jdihn.png"
+                  alt="Logo Kabupaten"
+                  onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-building-shield\' style=\'font-size: 40px; color: #ff5555;\'></i>'"
+                />
+              </div>
+            </div>
+            <div class="footer-title">
+              <h3>Jaringan Dokumentasi dan Informasi Hukum</h3>
+              <h3>Dewan Perwakilan Rakyat Daerah</h3>
+              <h3>Kabupaten Mahakam Ulu</h3>
+            </div>
+          </div>
+
+          <!-- Social Media Section -->
+          <div class="col-lg-3 col-md-6">
+            <div class="social-section">
+              <h4>Ikuti Kami</h4>
+              <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="Instagram">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="YouTube">
+                  <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="Facebook">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="TikTok">
+                  <i class="fa-brands fa-tiktok"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Statistics Section -->
+          <div class="col-lg-4 col-md-6">
+            <div class="stats-section">
+              <h4>Statistik Pengunjung</h4>
+              <ul class="stats-list">
+                <li>
+                  <span>Online</span>
+                  <span class="stat-value">10</span>
+                </li>
+                <li>
+                  <span>Hari Ini</span>
+                  <span class="stat-value">120</span>
+                </li>
+                <li>
+                  <span>Kemarin</span>
+                  <span class="stat-value">450</span>
+                </li>
+                <li>
+                  <span>Minggu Ini</span>
+                  <span class="stat-value">1000</span>
+                </li>
+                <li>
+                  <span>Bulan Ini</span>
+                  <span class="stat-value">2108</span>
+                </li>
+                <li>
+                  <span>Total</span>
+                  <span class="stat-value">3760</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          Copyright © 2026 JDIH DPRD Kabupaten Mahakam Ulu Hak Cipta Dilindungi
+          Undang-undang
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+    <script>
+      const toggle = document.getElementById("advancedSearch");
+      const advancedBox = document.getElementById("advancedSearchBox");
+
+      toggle.addEventListener("change", () => {
+        if (toggle.checked) {
+          advancedBox.classList.add("active");
+          console.log("Pencarian lanjutan aktif");
+        } else {
+          advancedBox.classList.remove("active");
+          console.log("Pencarian lanjutan nonaktif");
+        }
+      });
+    </script>
+  </body>
+</html>

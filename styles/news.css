@@ -348,3 +348,79 @@
     border-radius: 0;
   }
 }
+
+.berita-section {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.berita-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.berita-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.berita-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.berita-image {
+  width: 180px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.berita-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.berita-date {
+  color: #22c55e;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.berita-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.berita-excerpt {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .berita-item {
+    flex-direction: column;
+  }
+
+  .berita-image {
+    width: 100%;
+    height: 200px;
+  }
+}

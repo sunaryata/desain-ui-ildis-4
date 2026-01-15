@@ -11,6 +11,15 @@
   border: none;
 }
 
+/* Alternating colors using nth-child */
+.law-card:nth-child(odd) {
+  background: #b8e6d5;
+}
+
+.law-card:nth-child(even) {
+  background: #85c7bd;
+}
+
 .law-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);

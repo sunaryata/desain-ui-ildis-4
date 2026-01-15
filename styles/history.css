@@ -1,0 +1,49 @@
+.paragraph {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.paragraph strong {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* List dengan huruf (a, b, c, d) */
+.list-alphabet {
+  list-style-type: lower-alpha;
+  padding-left: 40px;
+  margin: 16px 0;
+}
+
+.list-alphabet > li {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 12px;
+  padding-left: 8px;
+  text-align: justify;
+}
+
+/* List dengan angka romawi (i, ii, iii) */
+.list-roman {
+  list-style-type: lower-roman;
+  padding-left: 40px;
+  margin: 12px 0;
+}
+
+.list-roman > li {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 10px;
+  padding-left: 8px;
+  text-align: justify;
+}
+
+/* Nested list styling */
+.list-alphabet .list-roman {
+  margin-top: 8px;
+}

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DETAIL PERATURAN JDIH</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/hero-navbar.css" />
+    <link rel="stylesheet" href="styles/search.css" />
+    <link rel="stylesheet" href="styles/laws.css" />
+    <link rel="stylesheet" href="styles/news.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/agenda.css" />
+    <link rel="stylesheet" href="styles/sites.css" />
+    <link rel="stylesheet" href="styles/legal-basis.css" />
+    <!-- <link rel="stylesheet" href="styles/carousel.css" /> -->
+  </head>
+
+  <body>
+    <!-- HERO WRAPPER (BACKGROUND KHUSUS) -->
+    <section class="hero-wrapper-alt-2">
+      <!-- NAVBAR DALAM HERO -->
+      <nav class="navbar-wrapper">
+        <div class="navbar">
+          <img src="./logo_jdihn.png" alt="Logo Left" class="nav-logo" />
+
+          <!-- HTML - Update nav-menu -->
+          <ul class="nav-menu">
+            <li>Tentang</li>
+            <li class="has-submenu">
+              Berita
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+              <ul class="submenu">
+                <li>Berita Terbaru</li>
+                <li>Berita Legislatif</li>
+                <li>Berita Daerah</li>
+                <li>Arsip Berita</li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              Galeri
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+              <ul class="submenu">
+                <li>Foto Kegiatan</li>
+                <li>Video Dokumentasi</li>
+                <li>Album</li>
+              </ul>
+            </li>
+            <li>Agenda AKD</li>
+            <li class="has-submenu">
+              Dokumen
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+              <ul class="submenu">
+                <li>Peraturan Daerah</li>
+                <li>Keputusan DPRD</li>
+                <li>Laporan Kinerja</li>
+                <li>Dokumen Publik</li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              Kategori
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+              <ul class="submenu">
+                <li>Pemerintahan</li>
+                <li>Kesehatan</li>
+                <li>Pendidikan</li>
+                <li>Ekonomi</li>
+                <li>Lingkungan Hidup</li>
+              </ul>
+            </li>
+            <li><button class="btn-survey">Survey</button></li>
+          </ul>
+
+          <img src="./logo_jdihn.png" alt="Logo Right" class="nav-logo" />
+        </div>
+      </nav>
+
+      <!-- HERO CONTENT -->
+      <div class="hero">
+        <span class="bolder title-text text-white">DASAR HUKUM</span>
+
+        <div class="search-box">
+          <input type="text" placeholder="Cari dokumen hukum..." />
+          <button>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <div class="advanced-search" id="advancedSearchBox">
+            <div class="advanced-grid">
+              <div class="filter-group">
+                <label for="jenisPeraturan">Jenis Peraturan</label>
+                <select id="jenisPeraturan">
+                  <option value="">Pilih Jenis Peraturan</option>
+                  <option value="perda">Peraturan Daerah</option>
+                  <option value="perbup">Peraturan Bupati</option>
+                  <option value="perda-provinsi">Perda Provinsi</option>
+                  <option value="uu">Undang-Undang</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="status">Status</label>
+                <select id="status">
+                  <option value="">Pilih Status</option>
+                  <option value="berlaku">Berlaku</option>
+                  <option value="dicabut">Dicabut</option>
+                  <option value="diubah">Diubah</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="tahun">Tahun</label>
+                <input
+                  type="number"
+                  id="tahun"
+                  placeholder="Masukkan tahun"
+                  min="1900"
+                  max="2026"
+                />
+              </div>
+
+              <div class="filter-group">
+                <label for="nomor">Nomor</label>
+                <input type="text" id="nomor" placeholder="Masukkan nomor" />
+              </div>
+
+              <div class="filter-group">
+                <label for="bidang">Bidang Hukum</label>
+                <select id="bidang">
+                  <option value="">Pilih Bidang</option>
+                  <option value="pemerintahan">Pemerintahan Umum</option>
+                  <option value="kesehatan">Kesehatan</option>
+                  <option value="pendidikan">Pendidikan</option>
+                  <option value="ekonomi">Ekonomi</option>
+                  <option value="lingkungan">Lingkungan Hidup</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="teuStatus">TEU Status</label>
+                <select id="teuStatus">
+                  <option value="">Pilih TEU Status</option>
+                  <option value="tercantum">Tercantum</option>
+                  <option value="tidak-tercantum">Tidak Tercantum</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="switch-wrapper">
+          <label class="switch">
+            <input type="checkbox" id="advancedSearch" />
+            <span class="slider"></span>
+          </label>
+          <span class="text-white">Pencarian Lanjutan</span>
+        </div>
+      </div>
+    </section>
+    <section class="space">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-12 col-md-12">
+            <div class="content-section mt-4">
+              <h2>DASAR HUKUM</h2>
+
+              <div class="legal-basis-list">
+                <div class="legal-item">
+                  <span class="item-number">1.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Undang - undang Nomor 12 Tahun 2011</span
+                    >
+                    <span class="item-desc"
+                      >tentang Pembentukan Peraturan Perundang - undangan</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">2.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Peraturan Presiden Nomor 1 Tahun 2007</span
+                    >
+                    <span class="item-desc"
+                      >tentang Pengesahan, Pengundangan, dan Penyebarluasan
+                      Peraturan Perundang - undangan</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">3.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Undang - undang Nomor 14 Tahun 2008</span
+                    >
+                    <span class="item-desc"
+                      >tentang Keterbukaan Informasi Publik</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">4.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Undang - undang Nomor 30 Tahun 2014</span
+                    >
+                    <span class="item-desc"
+                      >tentang Administrasi Pemerintahan</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">5.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Peraturan Pemerintah Nomor 45 Tahun 2017</span
+                    >
+                    <span class="item-desc"
+                      >tentang Partisipasi Masyarakat Dalam Penyelenggaraan
+                      Pemerintah Daerah</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">6.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Peraturan Presiden Nomor 33 Tahun 2012</span
+                    >
+                    <span class="item-desc"
+                      >tentang Jaringan Dokumentasi dan Informasi Hukum
+                      Nasional</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">7.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Instruksi Presiden Nomor 6 Tahun 2001</span
+                    >
+                    <span class="item-desc"
+                      >tentang Pengembangan dan Pendayagunaan Telematika di
+                      Indonesia</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">8.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Peraturan Menteri Dalam Negeri Nomor 2 Tahun 2014</span
+                    >
+                    <span class="item-desc"
+                      >tentang Pengelolaan Jaringan Dokumentasi dan Informasi
+                      Hukum Kementerian Dalam Negeri dan Pemerintah Daerah</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">9.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Peraturan Menteri Dalam Negeri Nomor 120 Tahun 2018</span
+                    >
+                    <span class="item-desc"
+                      >tentang Perubahan Atas Peraturan Dalam Negeri Nomor 80
+                      Tahun 2015 tentang Pembentukan Produk Hukum Daerah</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">10.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Keputusan Menteri Dalam Negeri Nomor 168 Tahun 2004</span
+                    >
+                    <span class="item-desc"
+                      >tentang Pedoman Pembangunan dan Pengembangan Sistem
+                      Informasi Hukum (SISKUM)</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">11.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Peraturan Menteri Hukum Dan HAM Asasi Republik Nomor 8
+                      Tahun 2019</span
+                    >
+                    <span class="item-desc"
+                      >tentang Standar Pengelolaan Dokumen Dan Informasi
+                      Hukum</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">12.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Peraturan Daerah Nomor 3 Tahun 2021</span
+                    >
+                    <span class="item-desc"
+                      >tentang Perubahan Atas Peraturan Daerah Kota Bandung
+                      Nomor 8 Tahun 2016 tentang Pembentukan dan Susunan
+                      Perangkat Daerah Kota Bandung</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">13.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Peraturan Wali Kota Bandung Nomor 50 Tahun 2022</span
+                    >
+                    <span class="item-desc"
+                      >Tentang Kedudukan, Susunan Organisasi, Tugas Dan Fungsi
+                      Serta Tata Kerja Sekretariat Dewan Perwakilan Rakyat
+                      Daerah Kota Bandung</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">14.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Peraturan Wali Kota Nomor 1090 Tahun 2018</span
+                    >
+                    <span class="item-desc"
+                      >tentang Pengelolaan Jaringan Dokumentasi dan Informasi
+                      Hukum</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">15.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Keputusan Sekretaris Dewan Perwakilan Rakyat Daerah Kota
+                      Bandung Nomor : HK.07.01/016-Setwan/I/2022</span
+                    >
+                    <span class="item-desc"
+                      >Tentang Pengelolaan Jaringan Dokumentasi dan Informasi
+                      Hukum (JDIH) di Lingkungan Sekretariat DPRD Kota
+                      Bandung</span
+                    >
+                  </div>
+                </div>
+
+                <div class="legal-item">
+                  <span class="item-number">16.</span>
+                  <div class="item-content">
+                    <span class="item-link"
+                      >Keputusan Sekretaris Dewan Perwakilan Rakyat Daerah Kota
+                      Bandung Nomor : B/HK.07.01/009-Setwan/I/2024</span
+                    >
+                    <span class="item-desc"
+                      >Tentang Tim Teknis Pengelolaan Jaringan Dokumentasi Dan
+                      Informasi Hukum Di Lingkungan Sekretariat DPRD Kota
+                      Bandung</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div class="row g-4">
+          <!-- Logo & Title Section -->
+          <div class="col-lg-5 col-md-12">
+            <div class="footer-logo-section">
+              <div class="footer-logo">
+                <img
+                  src="./logo_jdihn.png"
+                  alt="Logo JDIH"
+                  onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-landmark\' style=\'font-size: 40px; color: #ff5555;\'></i>'"
+                />
+              </div>
+              <div class="footer-logo">
+                <img
+                  src="./logo_jdihn.png"
+                  alt="Logo Kabupaten"
+                  onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-building-shield\' style=\'font-size: 40px; color: #ff5555;\'></i>'"
+                />
+              </div>
+            </div>
+            <div class="footer-title">
+              <h3>Jaringan Dokumentasi dan Informasi Hukum</h3>
+              <h3>Dewan Perwakilan Rakyat Daerah</h3>
+              <h3>Kabupaten Mahakam Ulu</h3>
+            </div>
+          </div>
+
+          <!-- Social Media Section -->
+          <div class="col-lg-3 col-md-6">
+            <div class="social-section">
+              <h4>Ikuti Kami</h4>
+              <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="Instagram">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="YouTube">
+                  <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="Facebook">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="TikTok">
+                  <i class="fa-brands fa-tiktok"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Statistics Section -->
+          <div class="col-lg-4 col-md-6">
+            <div class="stats-section">
+              <h4>Statistik Pengunjung</h4>
+              <ul class="stats-list">
+                <li>
+                  <span>Online</span>
+                  <span class="stat-value">10</span>
+                </li>
+                <li>
+                  <span>Hari Ini</span>
+                  <span class="stat-value">120</span>
+                </li>
+                <li>
+                  <span>Kemarin</span>
+                  <span class="stat-value">450</span>
+                </li>
+                <li>
+                  <span>Minggu Ini</span>
+                  <span class="stat-value">1000</span>
+                </li>
+                <li>
+                  <span>Bulan Ini</span>
+                  <span class="stat-value">2108</span>
+                </li>
+                <li>
+                  <span>Total</span>
+                  <span class="stat-value">3760</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          Copyright © 2026 JDIH DPRD Kabupaten Mahakam Ulu Hak Cipta Dilindungi
+          Undang-undang
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+    <script>
+      const toggle = document.getElementById("advancedSearch");
+      const advancedBox = document.getElementById("advancedSearchBox");
+
+      toggle.addEventListener("change", () => {
+        if (toggle.checked) {
+          advancedBox.classList.add("active");
+          console.log("Pencarian lanjutan aktif");
+        } else {
+          advancedBox.classList.remove("active");
+          console.log("Pencarian lanjutan nonaktif");
+        }
+      });
+    </script>
+  </body>
+</html>

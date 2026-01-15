@@ -1,6 +1,5 @@
 /* ================= LAW CARDS ================= */
 .law-card {
-  background: #b8e6d5;
   border-radius: 24px;
   padding: 32px;
   height: 100%;
@@ -11,13 +10,22 @@
   border: none;
 }
 
-/* Alternating colors using nth-child */
-.law-card:nth-child(odd) {
-  background: #b8e6d5;
+.row > div:nth-child(odd) .law-card {
+  background: var(--card-green);
 }
 
-.law-card:nth-child(even) {
-  background: #85c7bd;
+.row > div:nth-child(even) .law-card {
+  background: var(--card-teal);
+}
+
+/* Target div pembungkus card (col-lg-12) yang ganjil */
+.law-section > div:nth-child(odd) .law-card {
+  background: var(--card-green);
+}
+
+/* Target div pembungkus card (col-lg-12) yang genap */
+.law-section > div:nth-child(even) .law-card {
+  background: var(--card-teal);
 }
 
 .law-card:hover {
@@ -97,7 +105,7 @@
 }
 
 .category-section h2 {
-  font-size: 18px;
+  font-size: 28px;
   font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 20px;
@@ -105,7 +113,7 @@
   letter-spacing: 0.5px;
 }
 .law-section h2 {
-  font-size: 18px;
+  font-size: 28px;
   font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 20px;

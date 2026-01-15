@@ -3,7 +3,7 @@
   position: relative;
   min-height: 90vh;
   background: linear-gradient(rgba(234, 247, 241, 0.15), rgba(17, 17, 17, 0.15)),
-    url("../FULL@4x.png") center / cover no-repeat;
+    url("../background.png") center / cover no-repeat;
   border-bottom-left-radius: 20vh;
   border-bottom-right-radius: 20vh;
 }
@@ -12,6 +12,13 @@
   min-height: 100vh;
   background: linear-gradient(rgba(234, 247, 241, 0.15), rgba(17, 17, 17, 0.15)),
     url("../background-alt.png") center / cover no-repeat;
+}
+
+.hero-wrapper-alt-2 {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(rgba(234, 247, 241, 0.15), rgba(17, 17, 17, 0.15)),
+    url("../background-alt-2.png") center / cover no-repeat;
 }
 
 /* ================= ORNAMENT SLOTS ================= */

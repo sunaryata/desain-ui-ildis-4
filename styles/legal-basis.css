@@ -1,0 +1,102 @@
+/* ================= CONTENT SECTION - DASAR HUKUM ================= */
+.content-section {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  border: 2px solid #f1f5f9;
+}
+
+.content-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.legal-basis-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.legal-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.2s ease;
+}
+
+.legal-item:last-child {
+  border-bottom: none;
+}
+
+.legal-item:hover {
+  padding-left: 8px;
+  background: #fafafa;
+}
+
+.item-number {
+  font-weight: 600;
+  color: var(--text);
+  min-width: 32px;
+  font-size: 15px;
+}
+
+.item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-link {
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.item-link:hover {
+  color: var(--primary);
+}
+
+.item-desc {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .content-section {
+    padding: 24px 16px;
+  }
+
+  .content-section h2 {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .legal-item {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 0;
+  }
+
+  .item-number {
+    min-width: auto;
+  }
+
+  .item-link {
+    font-size: 14px;
+  }
+
+  .item-desc {
+    font-size: 13px;
+  }
+}
